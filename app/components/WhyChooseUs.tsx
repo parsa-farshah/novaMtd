@@ -3,18 +3,18 @@ import { FaCheckSquare } from "react-icons/fa";
 
 const WhyChooseUs = () => {
   return (
-    <section className="mt-[69px] px-6 flex flex-col h-fit w-fit items-center lg:flex-row lg:items-center  lg:gap-6">
+    <section className="w-full mt-[69px] px-6 flex flex-col justify-center h-fit items-center lg:flex-row lg:items-center  lg:gap-6 2xl:container 2xl:mx-auto">
       <div className="lg:w-[113px] flex items-center h-fit">
         <span className="font-vazir text-2xl font-bold lg:text-center  lg:text-[28px]  ">
           مزایای همکاری با novamtd
         </span>
       </div>
       {/* cards */}
-      <section className="flex flex-col gap-2 mt-[58px] md:mt-[36px] md:flex-row md:justify-between md:px-6 md:gap-0">
-        {/* card  */}
+      <section className="flex flex-col gap-2 mt-[58px] lg:mt-0 md:flex-row md:justify-between md:px-6 md:gap-0 md:items-center h-full">
+        {/* card 1 */}
         <section className="w-[280px] md:w-[32%]">
-          <div className="bg-primary rounded-3xl px-3 py-6 flex items-center gap-6">
-            <FaCheckSquare className="text-white text-5xl" />
+          <div className="bg-primary rounded-3xl px-3 py-6  flex items-center gap-6 md:gap-8">
+            <FaCheckSquare className="text-white text-5xl md:text-7xl" />
             <div className="flex flex-col gap-5">
               <span className="font-vazir text-xs font-bold text-white lg:text-sm">
                 لورم ایپسوم متن ساختگی تولید
@@ -28,8 +28,8 @@ const WhyChooseUs = () => {
         </section>
         {/* card 2 */}
         <section className="w-[280px] md:w-[32%]">
-          <div className="bg-primary rounded-3xl px-3 py-6 flex items-center gap-6">
-            <FaCheckSquare className="text-white text-5xl" />
+          <div className="bg-primary rounded-3xl px-3 py-6  flex items-center gap-6 md:gap-8">
+            <FaCheckSquare className="text-white text-5xl md:text-7xl" />
             <div className="flex flex-col gap-5">
               <span className="font-vazir text-xs font-bold text-white lg:text-sm">
                 لورم ایپسوم متن ساختگی تولید
@@ -43,8 +43,8 @@ const WhyChooseUs = () => {
         </section>{" "}
         {/* card 3 */}
         <section className="w-[280px] md:w-[32%]">
-          <div className="bg-primary rounded-3xl px-3 py-6 flex items-center gap-6">
-            <FaCheckSquare className="text-white text-5xl" />
+          <div className="bg-primary rounded-3xl px-3 py-6  flex items-center gap-6 md:gap-8">
+            <FaCheckSquare className="text-white text-5xl md:text-7xl" />
             <div className="flex flex-col gap-5">
               <span className="font-vazir text-xs font-bold text-white lg:text-sm">
                 لورم ایپسوم متن ساختگی تولید
