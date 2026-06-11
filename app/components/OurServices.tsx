@@ -15,7 +15,7 @@ const OurServices = () => {
       {/* text */}
       <span className="font-vazir text-[32px] font-black">خدمات ما</span>
       {/* carousel */}
-      <div className="flex md:hidden">
+      <div className="w-full overflow-hidden flex md:hidden">
         <CarouselOurServices />
       </div>
       {/* cards */}

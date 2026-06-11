@@ -107,7 +107,7 @@ const Products = () => {
           </section>
           {/* bottom */}
           <section className="flex gap-9 lg:gap-5">
-            {/* card1 */}
+            {/* card 3 */}
             <section>
               <div className="w-[233px] p-3 bg-[#3F8BFF] border border-[#0962EA] rounded-3xl mx-auto shadow-xs">
                 {/* image */}
@@ -136,7 +136,7 @@ const Products = () => {
                 </p>
               </div>
             </section>
-            {/* card2 */}
+            {/* card 4 */}
             <section>
               <div className="w-[233px] p-3 bg-[#3F8BFF] border border-[#0962EA] rounded-3xl mx-auto shadow-xs">
                 {/* image */}
