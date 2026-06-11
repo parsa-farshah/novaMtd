@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { FaPills } from "react-icons/fa";
+import { CarouselOurServices } from "./CarouselOurServices";
 
 const OurServices = () => {
   return (
@@ -13,8 +14,12 @@ const OurServices = () => {
       </div>
       {/* text */}
       <span className="font-vazir text-[32px] font-black">خدمات ما</span>
+      {/* carousel */}
+      <div className="flex md:hidden">
+        <CarouselOurServices />
+      </div>
       {/* cards */}
-      <section className="flex flex-col items-center gap-[15px] md:flex-row md:flex-wrap md:justify-center md:w-[637px] xl:w-[950px] mt-4">
+      <section className="flex-col items-center gap-[15px] md:flex-row md:flex-wrap md:justify-center md:w-[637px] xl:w-[950px] mt-4 hidden md:flex">
         {/* card 1 */}
         <section className="bg-primary px-6 py-4 w-[70%]  md:w-[248px] rounded-3xl flex flex-col gap-[14px] xl:w-[354px] xl:h-[192px]">
           <div className="flex gap-3.5">

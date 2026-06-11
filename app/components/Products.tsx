@@ -5,11 +5,11 @@ import Image from "next/image";
 const Products = () => {
   return (
     <section className="w-full px-3 flex justify-center mt-[130px] relative 2xl:container 2xl:mx-auto h-fit">
-      <section className="bg-primary rounded-2xl px-6 py-8 flex flex-col items-center w-full gap-10">
+      <section className="bg-primary rounded-2xl  py-8 flex flex-col items-center w-full gap-10">
         {/* top text */}
-        <div className="md:flex md:items-start md:px-[42px] md:pt-6 w-full md:w-[712px] md:h-[273px] lg:w-full">
+        <div className="md:flex md:items-start md:px-[42px] md:pt-6 w-full md:w-[712px] md:h-[273px] lg:w-full px-6">
           {/* right text*/}
-          <div className="w-[50%]">
+          <div className="w-[50%] ">
             <span className="font-vazir text-xl lg:text-[32px] font-bold text-white">
               محصولات
             </span>
