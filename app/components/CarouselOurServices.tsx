@@ -38,9 +38,9 @@ export function CarouselOurServices() {
         ))}
       </CarouselContent>
 
-      <CarouselNext className="!left-4 !right-auto z-50 bg-white rotate-180 border border-black" />
+      {/* <CarouselNext className="!left-4 !right-auto z-50 bg-white rotate-180 border border-black" />
 
-      <CarouselPrevious className="!right-4 !left-auto z-50 bg-white -rotate-180 border border-black" />
+      <CarouselPrevious className="!right-4 !left-auto z-50 bg-white -rotate-180 border border-black" /> */}
     </Carousel>
   );
 }
