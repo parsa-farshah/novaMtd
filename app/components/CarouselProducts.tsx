@@ -36,13 +36,13 @@ export function CarouselProducts() {
 
               {/* title */}
               <div className="py-4">
-                <span className="font-vazir font-bold text-white">
+                <span className=" font-bold text-white">
                   لورم ایپسوم متن ساختگی
                 </span>
               </div>
 
               {/* description */}
-              <p className="font-vazir text-xs text-[#E3E3E3] leading-6">
+              <p className=" text-xs text-[#E3E3E3] leading-6">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                 استفاده از طراحان گرافیک است
               </p>

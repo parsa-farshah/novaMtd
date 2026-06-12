@@ -12,7 +12,7 @@ const Footer = () => {
           <figure className="shrink-0">
             <Image src="/images/logo.png" alt="logo" width={70} height={70} />
           </figure>
-          <p className="font-vazir text-[10px] font-normal leading-5 text-white md:text-sm  leading-6">
+          <p className=" text-[10px] font-normal leading-5 text-white md:text-sm  leading-6">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
             ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
@@ -24,8 +24,8 @@ const Footer = () => {
         <div className="flex justify-around text-white md:gap-8 md:w-[51%] lg:w-[35%]">
           {/* links 1 */}
           <div className="flex flex-col gap-6">
-            <span className="font-vazir font-bold">لورم</span>
-            <ul className="*:text-sm *:font-bold *:font-vazir flex flex-col gap-2">
+            <span className=" font-bold">لورم</span>
+            <ul className="*:text-sm *:font-bold *: flex flex-col gap-2">
               <li>
                 <a href="">لورم ایپسوم</a>
               </li>
@@ -42,8 +42,8 @@ const Footer = () => {
           </div>
           {/* links 2 */}
           <div className="flex flex-col gap-6">
-            <span className="font-vazir font-bold">لورم</span>
-            <ul className="*:text-sm *:font-bold *:font-vazir flex flex-col gap-2">
+            <span className=" font-bold">لورم</span>
+            <ul className="*:text-sm *:font-bold *: flex flex-col gap-2">
               <li>
                 <a href="">لورم ایپسوم</a>
               </li>
@@ -60,8 +60,8 @@ const Footer = () => {
           </div>{" "}
           {/* links 3 */}
           <div className="flex flex-col gap-6">
-            <span className="font-vazir font-bold">لورم</span>
-            <ul className="*:text-sm *:font-bold *:font-vazir flex flex-col gap-2">
+            <span className=" font-bold">لورم</span>
+            <ul className="*:text-sm *:font-bold *: flex flex-col gap-2">
               <li>
                 <a href="">لورم ایپسوم</a>
               </li>

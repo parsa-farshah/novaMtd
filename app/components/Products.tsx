@@ -4,17 +4,17 @@ import Image from "next/image";
 
 const Products = () => {
   return (
-    <section className="w-full px-3 flex justify-center mt-[130px] relative 2xl:container 2xl:mx-auto h-fit">
-      <section className="bg-primary rounded-2xl  py-8 flex flex-col items-center w-full gap-10">
+    <section className="w-full flex justify-center mt-[130px] relative 2xl:container 2xl:mx-auto h-fit">
+      <section className="bg-primary pb-40 md:pb-0 rounded-2xl  py-8 flex flex-col items-center w-full gap-10">
         {/* top text */}
         <div className="md:flex md:items-start md:px-[42px] md:pt-6 w-full md:w-[712px] md:h-[273px] lg:w-full px-6">
           {/* right text*/}
           <div className="w-[50%] ">
-            <span className="font-vazir text-xl lg:text-[32px] font-bold text-white">
+            <span className=" text-xl lg:text-[32px] font-bold text-white">
               محصولات
             </span>
 
-            <p className="font-vazir text-sm font-bold lg:text-xl text-[#E3E3E3] mt-[35px] w-[95%]">
+            <p className=" text-sm font-bold lg:text-xl text-[#E3E3E3] mt-[35px] w-[95%]">
               لورم ایپسوم متن ساختگی با تولیدلورم ایپسوم متن ساختگی با تولید
               لورم ایپسوم متن ساختگی
             </p>
@@ -31,7 +31,7 @@ const Products = () => {
 
           {/* text left*/}
           <div className="md:w-[317px] lg:w-[50%]">
-            <p className="font-vazir text-xs font-medium text-[#E3E3E3] lg:text-[16px] lg:font-normal">
+            <p className=" text-xs font-medium text-[#E3E3E3] lg:text-[16px] lg:font-normal">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و گرافیک
               است. چاپگرها و متون بلکه روزنام لورم ایپسوم متن ساختگی با تولید
               سادگی نامفهوم از صنعت چاپ و گرافیک است. چاپگرها و متون بلکه روزنام
@@ -39,7 +39,7 @@ const Products = () => {
           </div>
         </div>
         {/* products */}
-        <div className="w-full overflow-hidden flex md:hidden">
+        <div className="w-full overflow-hidden flex md:hidden absolute top-[65%]">
           <CarouselProducts />
         </div>
         {/* ----------------------- products tablet and desktop ----------------------*/}
@@ -63,13 +63,13 @@ const Products = () => {
 
                 {/* title */}
                 <div className="py-4">
-                  <span className="font-vazir font-bold text-white">
+                  <span className=" font-bold text-white">
                     لورم ایپسوم متن ساختگی
                   </span>
                 </div>
 
                 {/* description */}
-                <p className="font-vazir text-xs text-[#E3E3E3] leading-6">
+                <p className=" text-xs text-[#E3E3E3] leading-6">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است
                 </p>
@@ -92,13 +92,13 @@ const Products = () => {
 
                 {/* title */}
                 <div className="py-4">
-                  <span className="font-vazir font-bold text-white">
+                  <span className=" font-bold text-white">
                     لورم ایپسوم متن ساختگی
                   </span>
                 </div>
 
                 {/* description */}
-                <p className="font-vazir text-xs text-[#E3E3E3] leading-6">
+                <p className=" text-xs text-[#E3E3E3] leading-6">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است
                 </p>
@@ -124,13 +124,13 @@ const Products = () => {
 
                 {/* title */}
                 <div className="py-4">
-                  <span className="font-vazir font-bold text-white">
+                  <span className=" font-bold text-white">
                     لورم ایپسوم متن ساختگی
                   </span>
                 </div>
 
                 {/* description */}
-                <p className="font-vazir text-xs text-[#E3E3E3] leading-6">
+                <p className=" text-xs text-[#E3E3E3] leading-6">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است
                 </p>
@@ -153,13 +153,13 @@ const Products = () => {
 
                 {/* title */}
                 <div className="py-4">
-                  <span className="font-vazir font-bold text-white">
+                  <span className=" font-bold text-white">
                     لورم ایپسوم متن ساختگی
                   </span>
                 </div>
 
                 {/* description */}
-                <p className="font-vazir text-xs text-[#E3E3E3] leading-6">
+                <p className=" text-xs text-[#E3E3E3] leading-6">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                   استفاده از طراحان گرافیک است
                 </p>

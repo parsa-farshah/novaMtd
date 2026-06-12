@@ -26,10 +26,10 @@ export function CarouselOurServices() {
                 <div className="w-2 h-[21px] bg-white rounded-full"></div>
                 <FaPills className="text-5xl text-white" />
               </div>
-              <span className="font-vazir font-bold text-sm text-white">
+              <span className=" font-bold text-sm text-white">
                 لورم ایپسوم متن ساختگی با
               </span>
-              <p className="text-[#E3E3E3] font-vazir font-normal text-xs">
+              <p className="text-[#E3E3E3]  font-normal text-xs">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
                 استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنام
               </p>

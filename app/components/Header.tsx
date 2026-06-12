@@ -18,7 +18,7 @@ const Header = () => {
             <Bars3Icon width={22} height={22} className="text-white" />
           </button>
           {/* navigation */}
-          <ul className="flex *:px-4 items-center *:text-[#848484] *:font-semibold *:font-vazir hidden md:flex">
+          <ul className="flex *:px-4 items-center *:text-[#848484] *:font-semibold  hidden md:flex">
             <li>
               <a href="">لورم</a>
             </li>{" "}

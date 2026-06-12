@@ -16,14 +16,12 @@ const Top = () => {
           {/* phone number */}
           <div className="flex items-center gap-2 py-2.5 ">
             <PhoneIcon width={20} height={20} className="text-white" />
-            <span className="text-white font-vazir font-bold text-xs">
-              09372440469
-            </span>
+            <span className="text-white  font-bold text-xs">09372440469</span>
           </div>
           {/* Email */}
           <div className="flex items-center gap-2 py-2.5 ">
             <EnvelopeIcon width={20} height={20} className="text-white" />
-            <span className="text-white font-vazir font-bold text-xs">
+            <span className="text-white  font-bold text-xs">
               ParsaFarashah@gmail.com
             </span>
           </div>
