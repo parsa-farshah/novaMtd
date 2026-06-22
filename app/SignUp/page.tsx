@@ -8,6 +8,7 @@ import { FormSignUp } from "../components/FormSignUp";
 import { motion, AnimatePresence } from "framer-motion";
 // ایمپورت کردن Image از next/image (اگر لازم است)
 import Image from "next/image";
+import Link from "next/link";
 
 function Page() {
   // این State تعیین می‌کند کدام فرم نمایش داده شود: true برای ثبت‌نام، false برای ورود
@@ -36,13 +37,19 @@ function Page() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#f8fafc] flex flex-col">
+    <div className="w-full min-h-screen bg-[#f8fafc] flex flex-col px-3 md:px-6 py-4 gap-2">
+      {/* Breadcrumb */}
+      <div className="flex gap-3 items-center text-gray-500 text-sm px-3 md:px-6">
+        <Link href="./">خانه /</Link>
+        <span className="text-primary">{isSignUp ? "ثبت نام" : "ورود"}</span>
+      </div>
+      {/* box */}
       <main className="flex-grow flex items-center justify-center px-3 md:px-6 p-4 md:p-0">
-        <div className="w-full max-w-7xl h-[90vh] flex bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100">
+        <div className="w-full max-w-7xl h-fit flex bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100">
           {/* سمت چپ: بخش فرم */}
           <div className="w-full md:w-[65%] lg:w-[45%] flex flex-col justify-between px-6 py-4 md:px-12 lg:px-16 bg-white overflow-hidden">
             {/* بخش بالا: لوگو */}
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 ">
               {/* فرض می‌کنیم لوگو در public/images/logo.png قرار دارد */}
               <figure className="relative w-[50px] h-[50px]">
                 <Image
@@ -113,13 +120,15 @@ function Page() {
           </div>
 
           {/* سمت راست: بخش تصویر (بدون تغییر) */}
-          <div className="hidden md:flex md:w-[35%] lg:w-[55%] relative bg-gradient-to-br from-[#0962ea] via-[#074fb3] to-[#04367d] items-center justify-center overflow-hidden">
+          <div className="hidden md:flex md:w-[35%] lg:w-[55%] relative bg-gradient-to-br from-[#0962ea] via-[#074fb3] to-[#04367d] items-center justify-center overflow-hidden rounded-3xl">
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-400/20 rounded-full blur-3xl"></div>
 
             <div className="relative z-10 text-center px-12">
-              <h2 className="text-3xl font-bold mb-3 text-white">خوش آمدید!</h2>
-              <p className="text-blue-100 text-lg font-light">
+              <h2 className="text-xl lg:text-3xl font-bold mb-3 text-white">
+                خوش آمدید!
+              </h2>
+              <p className="text-blue-100 text-sm lg:text-lg font-light">
                 برای مدیریت بهتر کارهای خود، وارد پنل کاربری شوید.
               </p>
             </div>

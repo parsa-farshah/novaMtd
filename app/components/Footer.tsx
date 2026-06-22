@@ -3,9 +3,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-primary px-3 py-8 mt-20 md:mt-32">
+    <div className="w-full bg-primary px-3 py-8 mt-20 md:mt-32 ">
       {/* footer */}
-      <div className="py-3 flex flex-col gap-9 md:flex-row md:items-center">
+      <div className="py-3 flex flex-col gap-9 md:flex-row md:items-center 2xl:container 2xl:mx-auto">
         {/* logo and text */}
         <div className="flex gap-3 md:w-[48%] lg:w-[55%]">
           {/* logo */}
