@@ -10,7 +10,12 @@ const Footer = () => {
         <div className="flex gap-3 md:w-[48%] lg:w-[55%]">
           {/* logo */}
           <figure className="shrink-0">
-            <Image src="/images/logo.png" alt="logo" width={70} height={70} />
+            <Image
+              src="/images/logoMain2.png"
+              alt="logo"
+              width={70}
+              height={70}
+            />
           </figure>
           <p className=" text-[10px] font-normal leading-5 text-white md:text-sm  leading-6">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با

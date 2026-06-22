@@ -4,17 +4,17 @@ import Image from "next/image";
 
 const Products = () => {
   return (
-    <section className="w-full flex justify-center mt-[130px] relative 2xl:container 2xl:mx-auto h-fit">
+    <section className="w-full flex justify-center mt-[130px] relative 2xl:container 2xl:mx-auto h-fit px-3 md:px-6">
       <section className="bg-primary pb-40 md:pb-0 rounded-2xl  py-8 flex flex-col items-center w-full gap-10">
         {/* top text */}
         <div className="md:flex md:items-start md:px-[42px] md:pt-6 w-full md:w-[712px] md:h-[273px] lg:w-full px-6">
           {/* right text*/}
-          <div className="w-[50%] ">
+          <div className="w-full ">
             <span className=" text-xl lg:text-[32px] font-bold text-white">
               محصولات
             </span>
 
-            <p className=" text-sm font-bold lg:text-xl text-[#E3E3E3] mt-[35px] w-[95%]">
+            <p className=" text-sm font-bold lg:text-xl text-[#E3E3E3] mt-[25px] w-[95%]">
               لورم ایپسوم متن ساختگی با تولیدلورم ایپسوم متن ساختگی با تولید
               لورم ایپسوم متن ساختگی
             </p>

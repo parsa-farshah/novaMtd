@@ -67,7 +67,7 @@ function Page() {
                 <div className="flex items-center gap-4 shrink-0">
                   <figure className="relative w-[50px] h-[50px]">
                     <Image
-                      src="/images/logo.png"
+                      src="/images/logoMain2.png"
                       alt="logo"
                       fill
                       className="object-contain"

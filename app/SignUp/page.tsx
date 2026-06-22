@@ -53,7 +53,7 @@ function Page() {
               {/* فرض می‌کنیم لوگو در public/images/logo.png قرار دارد */}
               <figure className="relative w-[50px] h-[50px]">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logoMain2.png"
                   alt="logo"
                   fill
                   className="object-contain"
