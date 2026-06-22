@@ -3,9 +3,9 @@ import Top from "./components/Top";
 import OurServices from "./components/OurServices";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Products from "./components/Products";
-import AboutUs from "./components/AboutUs";
 import Banners from "./components/Banners";
 import Footer from "./components/Footer";
+import AboutUs from "./components/AboutUs";
 
 export default function Home() {
   return (
