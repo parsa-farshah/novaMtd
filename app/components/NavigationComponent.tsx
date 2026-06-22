@@ -8,7 +8,7 @@ function NavigationComponent() {
     { label: "لورم", href: "/page1" }, // فرض کنید صفحات شما این آدرس‌ها را دارند
     { label: "لورم", href: "/page2" },
     { label: "لورم", href: "/page3" },
-    { label: "لورم", href: "/page4" },
+    { label: "درباره ما", href: "/aboutUs" },
   ];
 
   return (
