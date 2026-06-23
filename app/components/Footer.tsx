@@ -129,7 +129,7 @@ const Footer = () => {
             مجوزها و تاییدیه‌ها
           </p>
 
-          <div className="flex flex-wrap justify-center gap-5 md:gap-8">
+          <div className="grid grid-cols-3 md:flex md:flex-wrap justify-center gap-5 md:gap-8">
             {/* دانش‌بنیان */}
             <div className="flex flex-col items-center gap-2">
               <div className="w-24 h-24 rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 flex items-center justify-center p-3">

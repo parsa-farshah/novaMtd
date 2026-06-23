@@ -3,7 +3,7 @@ import ButtonMain from "./ButtonMain";
 
 const NeuroHero = () => {
   return (
-    <section className="w-full relative h-[420px] flex items-center 2xl:container 2xl:mx-auto">
+    <section className="w-full relative h-[420px] flex items-center 2xl:container 2xl:mx-auto px-3 md:px-6">
       <Image
         src="/images/herobg.png"
         alt="پانسمان تخصصی اعصاب"

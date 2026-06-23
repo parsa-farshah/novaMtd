@@ -2,7 +2,7 @@ import { FaShieldAlt, FaHeartbeat, FaUserMd } from "react-icons/fa";
 
 const NeuroBenefits = () => {
   return (
-    <section className="flex flex-wrap justify-center gap-6 mt-12">
+    <section className="flex flex-wrap justify-center gap-6 mt-12 px-3 md:px-6">
       <div className="bg-primary rounded-3xl p-6 w-[260px] text-white flex flex-col gap-3">
         <FaShieldAlt className="text-3xl" />
         <span className="font-bold">محافظت از اعصاب</span>

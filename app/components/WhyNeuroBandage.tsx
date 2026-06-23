@@ -1,6 +1,6 @@
 const WhyNeuroBandage = () => {
   return (
-    <section className="flex flex-col items-center mt-16 gap-6">
+    <section className="flex flex-col items-center mt-16 gap-6 px-3 md:px-6">
       <h2 className="text-3xl font-black">چرا پانسمان تخصصی اعصاب؟</h2>
 
       <p className="text-center max-w-[650px] text-sm leading-7 text-[#353535]">

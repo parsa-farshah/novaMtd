@@ -10,7 +10,6 @@ function page() {
       <div className="mt-[83px] md:mt-[86px]">
         <ProductDetailPage />
       </div>
-
       <Footer />
     </div>
   );

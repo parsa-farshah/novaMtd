@@ -66,13 +66,13 @@ function NavigationComponent() {
                 />
               </div>
 
-              <h3
-                className={`text-xs lg:text-sm xl:text-lg font-bold transition-all duration-300 ${
+              <h1
+                className={`text-lg md:text-xs lg:text-sm xl:text-lg font-bold transition-all duration-300 ${
                   isScrolled ? "text-white" : "text-white md:text-slate-900"
                 }`}
               >
                 نوا
-              </h3>
+              </h1>
             </div>
 
             {/* mobile */}

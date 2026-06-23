@@ -1,9 +1,10 @@
 import Image from "next/image";
 import ButtonMain from "./ButtonMain";
+import Link from "next/link";
 
 const NeuroProducts = () => {
   return (
-    <section className="mt-16 flex flex-col items-center">
+    <section className="mt-16 flex flex-col items-center px-3 md:px-6">
       <h2 className="text-3xl font-black">محصولات پانسمان تخصصی</h2>
 
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-8 w-[90%]">
@@ -27,7 +28,11 @@ const NeuroProducts = () => {
               مناسب برای مراقبت از زخم‌های عصبی و تسریع بهبود.
             </p>
 
-            <ButtonMain txt="مشاهده محصول" />
+            <Link href="./productDetailPage" className="block w-full">
+              <div className="w-full rounded-2xl bg-blue-600 px-4 py-3 text-center font-semibold text-white shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
+                مشاهده محصول
+              </div>
+            </Link>
           </div>
         ))}
       </div>

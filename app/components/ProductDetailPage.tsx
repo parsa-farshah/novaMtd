@@ -97,15 +97,9 @@ export default function ProductDetailPage({
           خانه
         </Link>
         <ChevronLeftIcon className="h-4 w-4 rotate-180" />
-        <Link href="/products" className="hover:text-primary">
+        <Link href="./neuro-bandages" className="hover:text-primary">
           محصولات
         </Link>
-        {safeProduct.category && (
-          <>
-            <ChevronLeftIcon className="h-4 w-4 rotate-180" />
-            <span>{safeProduct.category}</span>
-          </>
-        )}
         <ChevronLeftIcon className="h-4 w-4 rotate-180" />
         <span className="text-slate-900">{safeProduct.title}</span>
       </div>
@@ -118,7 +112,7 @@ export default function ProductDetailPage({
               <Image
                 src={
                   // safeProduct.images?.[selectedImage]?.src ||
-                  "/images/product.png"
+                  "/images/product1.png"
                 }
                 alt={
                   safeProduct.images?.[selectedImage]?.alt || safeProduct.title
@@ -144,7 +138,7 @@ export default function ProductDetailPage({
                   }`}
                 >
                   <Image
-                    src="/images/product.png"
+                    src="/images/product1.png"
                     alt={img.alt || safeProduct.title}
                     fill
                     className="object-contain"
