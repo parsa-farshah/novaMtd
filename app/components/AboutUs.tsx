@@ -8,12 +8,7 @@ const AboutUs = () => {
       <AboutUsTxt />
       <div className="w-full h-[280px] px-6 md:h-[298px] lg:w-[40%]">
         <figure className="relative w-full h-full rounded-[50px] overflow-hidden">
-          <Image
-            src="/images/about.jfif"
-            alt="aboutUs"
-            fill
-            objectFit="cover"
-          />
+          <Image src="/images/about.jpg" alt="aboutUs" fill objectFit="cover" />
         </figure>
       </div>
     </div>
