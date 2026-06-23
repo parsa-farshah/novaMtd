@@ -46,7 +46,6 @@ function Page() {
 
   return (
     <div className="min-h-screen">
-      <Top />
       <NavigationComponent />
       {/* header */}
       <div className="px-3 md:px-6 py-6 md:w-[90%] md:mx-auto 2xl:container">

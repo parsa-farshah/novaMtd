@@ -20,7 +20,7 @@ const ButtonMain = ({ txt }: { txt: string }) => {
       transition-all 
       duration-300 
       ease-in-out
-      border border-blue-700/10
+      border border-white/20
     "
     >
       {txt}

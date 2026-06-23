@@ -28,7 +28,6 @@ interface NavItem {
 
 const pages: NavItem[] = [
   { label: "خانه", href: "/" },
-  { label: "ثبت نام", href: "/SignUp" },
   { label: "تماس باما", href: "/contactUs" },
   { label: "درباره ما", href: "/aboutUs" },
   { label: "وبلاگ", href: "/blog" },
@@ -42,7 +41,7 @@ export function MobileMenu({ currentPage }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       {/* Trigger */}
       <div
         className="p-3 lg:hidden group hover:bg-primary duration-500 cursor-pointer rounded-xl"
@@ -61,7 +60,7 @@ export function MobileMenu({ currentPage }: MobileMenuProps) {
         </DrawerTrigger>
 
         <DrawerContent className="h-full w-72 p-0 bg-white !rounded-none !border-0">
-          <div className="flex h-full flex-col">
+          <div className="flex h-full flex-col ">
             {/* Header */}
             <DrawerHeader className="relative border-b border-slate-200 p-5 text-right">
               {/* Close Button */}
@@ -92,28 +91,6 @@ export function MobileMenu({ currentPage }: MobileMenuProps) {
 
             {/* Nav Items */}
             <nav className="flex-1 overflow-y-auto p-4">
-              <ul className="space-y-2">
-                {pages.map((page) => {
-                  const active = currentPage === page.href;
-
-                  return (
-                    <li key={page.href}>
-                      <Link
-                        href={page.href}
-                        onClick={() => setIsOpen(false)}
-                        className={`block rounded-xl px-4 py-3 text-sm font-bold transition-all duration-300 ${
-                          active
-                            ? "bg-blue-50 text-primary"
-                            : "text-slate-700 hover:bg-slate-50 hover:text-primary"
-                        }`}
-                      >
-                        {page.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-
               {/* Auth Actions */}
               <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <h4 className="mb-3 text-sm font-bold text-slate-900">
@@ -140,6 +117,28 @@ export function MobileMenu({ currentPage }: MobileMenuProps) {
                   </Link>
                 </div>
               </div>
+
+              <ul className="space-y-2 mt-6">
+                {pages.map((page) => {
+                  const active = currentPage === page.href;
+
+                  return (
+                    <li key={page.href}>
+                      <Link
+                        href={page.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`block rounded-xl px-4 py-3 text-sm font-bold transition-all duration-300 ${
+                          active
+                            ? "bg-blue-50 text-primary"
+                            : "text-slate-700 hover:bg-slate-50 hover:text-primary"
+                        }`}
+                      >
+                        {page.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
 
               {/* Social Icons */}
               <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
