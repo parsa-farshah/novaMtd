@@ -11,7 +11,7 @@ const posts = [
       "در این مقاله به بررسی ویژگی‌های کلیدی که باید هنگام خرید مانیتور علائم حیاتی به آن‌ها توجه کنید، می‌پردازیم...",
     category: "آموزش خرید",
     date: "۱۴۰۳/۰۵/۲۰",
-    image: "/images/blog1.jpg",
+    image: "/images/blog.jpg",
     author: "دکتر احمدی",
   },
   {
@@ -21,7 +21,7 @@ const posts = [
       "تغییرات اخیر در استانداردهای بین‌المللی تجهیزات اتاق عمل چیست و چگونه بر کیفیت خدمات تأثیر می‌گذارد؟",
     category: "اخبار علمی",
     date: "۱۴۰۳/۰۵/۱۸",
-    image: "/images/blog2.jpg",
+    image: "/images/blog.jpg",
     author: "مهندس رضایی",
   },
   {
@@ -31,7 +31,7 @@ const posts = [
       "نگهداری صحیح و کالیبراسیون دوره‌ای، کلید اصلی جلوگیری از خرابی‌های ناگهانی در تجهیزات حساس است...",
     category: "نگهداری و تعمیرات",
     date: "۱۴۰۳/۰۵/۱۵",
-    image: "/images/blog3.jpg",
+    image: "/images/blog.jpg",
     author: "کارشناس فنی",
   },
   {
@@ -41,7 +41,7 @@ const posts = [
       "آشنایی با جدیدترین نوآوری‌ها در حوزه سونوگرافی و تشخیص‌های هوشمند...",
     category: "تکنولوژی",
     date: "۱۴۰۳/۰۵/۱۰",
-    image: "/images/blog4.jpg",
+    image: "/images/blog.jpg",
     author: "دکتر سهرابی",
   },
 ];
@@ -110,7 +110,7 @@ const Blog = () => {
                 >
                   <div className="relative h-52 w-full overflow-hidden">
                     <Image
-                      src="/images/blog.jfif"
+                      src="/images/blog.jpg"
                       alt={post.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -149,13 +149,13 @@ const Blog = () => {
             <div className="mt-16 flex justify-center">
               <nav className="flex gap-2">
                 <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-blue-600 hover:text-white transition-all">
-                  1
+                  ۱
                 </button>
                 <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-blue-600 hover:text-white transition-all">
-                  2
+                  ۲
                 </button>
                 <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-blue-600 hover:text-white transition-all">
-                  3
+                  ۳
                 </button>
               </nav>
             </div>
@@ -219,7 +219,7 @@ const Blog = () => {
                   >
                     <div className="w-20 h-20 shrink-0 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/blog.jfif"
+                        src="/images/blog.jpg"
                         alt="pop"
                         width={80}
                         height={80}

@@ -48,20 +48,19 @@ function Page() {
         <div className="w-full max-w-7xl h-fit flex bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100">
           {/* سمت چپ: بخش فرم */}
           <div className="w-full md:w-[65%] lg:w-[45%] flex flex-col justify-between px-6 py-4 md:px-12 lg:px-16 bg-white overflow-hidden">
-            {/* بخش بالا: لوگو */}
-            <div className="flex items-center gap-2 shrink-0 ">
-              {/* فرض می‌کنیم لوگو در public/images/logo.png قرار دارد */}
-              <figure className="relative w-[50px] h-[50px]">
+            <div className="flex items-center gap-3">
+              <div className="rounded-2xl bg-primary p-2 shadow-sm ring-1 ring-slate-200">
                 <Image
-                  src="/images/logoMain2.png"
-                  alt="logo"
-                  fill
+                  src="/images/logo2.png"
+                  alt="Logo"
+                  width={30}
+                  height={30}
                   className="object-contain"
                 />
-              </figure>
-              <span className="font-bold text-xl tracking-tight text-slate-800">
-                NovaMtd
-              </span>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">نوا</h3>
+              </div>
             </div>
 
             {/* بخش میانی: فرم‌ها با انیمیشن */}

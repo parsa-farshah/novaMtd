@@ -65,11 +65,11 @@ export default function ContactUsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 pt-2">
                   <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100">
                     <p className="text-xs text-slate-500 mb-1">پاسخ‌گویی</p>
-                    <p className="font-bold text-slate-800">24 ساعته</p>
+                    <p className="font-bold text-slate-800">۲۴ ساعته</p>
                   </div>
                   <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100">
                     <p className="text-xs text-slate-500 mb-1">زمان پاسخ</p>
-                    <p className="font-bold text-slate-800">کمتر از 1 روز</p>
+                    <p className="font-bold text-slate-800">کمتر از ۱ روز</p>
                   </div>
                   <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100">
                     <p className="text-xs text-slate-500 mb-1">پشتیبانی</p>
@@ -94,7 +94,7 @@ export default function ContactUsPage() {
                   <div className="rounded-2xl bg-white/10 border border-white/15 p-4">
                     <p className="text-white/70 text-sm mb-1">شماره تماس</p>
                     <p className="font-semibold text-base md:text-lg">
-                      021-12345678
+                      ۰۲۱-۱۲۳۴۵۶۷۸
                     </p>
                   </div>
 
@@ -224,7 +224,7 @@ export default function ContactUsPage() {
                   چه مدت طول می‌کشد تا پاسخ بدهید؟
                 </h3>
                 <p className="text-sm md:text-base text-slate-600 leading-7">
-                  معمولاً کمتر از 24 ساعت کاری به پیام‌ها پاسخ داده می‌شود.
+                  معمولاً کمتر از ۲۴ ساعت کاری به پیام‌ها پاسخ داده می‌شود.
                 </p>
               </div>
 

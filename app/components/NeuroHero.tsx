@@ -5,10 +5,10 @@ const NeuroHero = () => {
   return (
     <section className="w-full relative h-[420px] flex items-center 2xl:container 2xl:mx-auto">
       <Image
-        src="/images/bandage4.png"
+        src="/images/herobg.png"
         alt="پانسمان تخصصی اعصاب"
         fill
-        className="object-cover"
+        className="object-cover "
       />
 
       <div className="relative z-10 px-6 max-w-[500px] flex flex-col gap-4">

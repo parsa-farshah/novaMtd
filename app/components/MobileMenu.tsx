@@ -31,6 +31,7 @@ const pages: NavItem[] = [
   { label: "تماس باما", href: "/contactUs" },
   { label: "درباره ما", href: "/aboutUs" },
   { label: "وبلاگ", href: "/blog" },
+  { label: "پانسمان های تخصصی", href: "/neuro-bandages" },
 ];
 
 interface MobileMenuProps {
