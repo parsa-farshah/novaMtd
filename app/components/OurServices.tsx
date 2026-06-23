@@ -5,7 +5,7 @@ import { CarouselOurServices } from "./CarouselOurServices";
 
 const OurServices = () => {
   return (
-    <div className="mt-6 w-full flex flex-col items-center relative overflow-hidden 2xl:container 2xl:mx-auto">
+    <div className="w-full flex flex-col items-center relative overflow-hidden 2xl:container 2xl:mx-auto">
       {/* image doctore */}
       <div className="absolute -left-[5%] xl:-left-[4%] bottom-0 hidden lg:flex z-0">
         <figure className="relative lg:w-[299px] lg:h-[399px]">

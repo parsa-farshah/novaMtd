@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Products = () => {
   return (
-    <section className="w-full flex justify-center mt-[130px] relative 2xl:container 2xl:mx-auto h-fit px-3 md:px-6">
+    <section className="w-full flex justify-center relative 2xl:container 2xl:mx-auto h-fit px-3 md:px-6">
       <section className="bg-primary pb-40 md:pb-0 rounded-2xl  py-8 flex flex-col items-center w-full gap-10">
         {/* top text */}
         <div className="md:flex md:items-start md:px-[42px] md:pt-6 w-full md:w-[712px] md:h-[273px] lg:w-full px-6">

@@ -3,7 +3,7 @@ import React from "react";
 
 const Banners = () => {
   return (
-    <section className="px-4 mt-[60px]">
+    <section className="px-4">
       <section className="w-full rounded-3xl bg-[#3f8cff1c] p-6 flex flex-col gap-3 lg:flex-row lg:justify-between lg:items-stretch">
         {/* Main banner */}
         <section className="w-full lg:w-[58%]">

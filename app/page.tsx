@@ -11,13 +11,15 @@ export default function Home() {
   return (
     <div>
       <Top />
-      <Header />
-      <OurServices />
-      <WhyChooseUs />
-      <Products />
-      <AboutUs />
-      <Banners />
-      <Footer />
+      <div className="flex flex-col gap-20">
+        <Header />
+        <OurServices />
+        <WhyChooseUs />
+        <Products />
+        <AboutUs />
+        <Banners />
+        <Footer />
+      </div>
     </div>
   );
 }

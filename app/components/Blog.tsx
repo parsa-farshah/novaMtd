@@ -107,7 +107,7 @@ const Blog = () => {
                 >
                   <div className="relative h-52 w-full overflow-hidden">
                     <Image
-                      src={post.image}
+                      src="/images/blog.jfif"
                       alt={post.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -129,7 +129,7 @@ const Blog = () => {
                       {post.excerpt}
                     </p>
                     <Link
-                      href={`/blog/${post.id}`}
+                      href={`/blogDetailPage`}
                       className="text-sm font-bold text-blue-600 flex items-center gap-2 group/link"
                     >
                       مطالعه مقاله
@@ -216,7 +216,7 @@ const Blog = () => {
                   >
                     <div className="w-20 h-20 shrink-0 rounded-2xl overflow-hidden">
                       <Image
-                        src={`/images/pop-${i}.jpg`}
+                        src="/images/blog.jfif"
                         alt="pop"
                         width={80}
                         height={80}

@@ -6,17 +6,17 @@ const relatedPosts = [
   {
     id: 1,
     title: "راهنمای انتخاب مانیتور علائم حیاتی برای کلینیک‌ها",
-    image: "/images/blog1.jpg",
+    image: "/images/blog.jfif",
   },
   {
     id: 2,
     title: "استانداردهای مهم در تجهیزات اتاق عمل",
-    image: "/images/blog2.jpg",
+    image: "/images/blog.jfif",
   },
   {
     id: 3,
     title: "نکات نگهداری از تجهیزات تشخیص طبی",
-    image: "/images/blog3.jpg",
+    image: "/images/blog.jfif",
   },
 ];
 
@@ -58,7 +58,7 @@ const BlogDetail = () => {
             {/* Featured Image */}
             <div className="relative w-full h-[260px] md:h-[420px] rounded-3xl overflow-hidden shadow-sm mb-8">
               <Image
-                src="/images/featured-blog.jpg"
+                src="/images/blog.jfif"
                 alt="Blog featured"
                 fill
                 className="object-cover"
