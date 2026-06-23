@@ -10,6 +10,7 @@ function NavigationComponent() {
     { label: "ثبت نام", href: "/SignUp" },
     { label: "تماس باما", href: "/contactUs" },
     { label: "درباره ما", href: "/aboutUs" },
+    { label: "وبلاگ", href: "/blog" }, // فرض کنید صفحات شما این آدرس‌ها را دارند
   ];
 
   return (
