@@ -16,7 +16,7 @@ const Top = () => {
             className="flex items-center gap-2 opacity-90 hover:opacity-100 hover:text-white/80 transition"
           >
             <PhoneIcon className="w-4 h-4" />
-            <span>۰۷۱‑۳۲XXXXXX</span>
+            <span dir="ltr">۰۷۱‑۳۲XXXXXX</span>
           </a>
 
           <a

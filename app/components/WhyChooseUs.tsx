@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
     <section className="w-full px-6 flex flex-col justify-center h-fit items-center lg:flex-row lg:items-center  lg:gap-6 2xl:container 2xl:mx-auto">
       <div className="lg:w-[113px] flex items-center h-fit">
         <span className=" text-2xl font-bold lg:text-center  lg:text-[28px]  ">
-          مزایای همکاری با novamtd
+          مزایای همکاری با نوا
         </span>
       </div>
       {/* cards */}

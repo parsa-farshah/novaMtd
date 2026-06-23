@@ -2,10 +2,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
 import { FaPills } from "react-icons/fa";
 
 export function CarouselOurServices() {
@@ -18,29 +15,27 @@ export function CarouselOurServices() {
         loop: true,
       }}
     >
-      <CarouselContent>
+      <CarouselContent className="px-3">
         {Array.from({ length: 4 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-[65%] shrink-0 py-5">
-            <section className="bg-primary px-6 py-4 w-[100%] rounded-3xl flex flex-col gap-[14px] shadow-sm shadow-black">
-              <div className="flex gap-3.5">
-                <div className="w-2 h-[21px] bg-white rounded-full"></div>
-                <FaPills className="text-5xl text-white" />
+          <CarouselItem key={index} className="basis-[70%] shrink-0 py-6">
+            <article className="bg-primary px-6 py-5 w-full rounded-3xl flex flex-col gap-3 shadow-md shadow-black/20">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-[20px] bg-white rounded-full"></div>
+                <FaPills className="text-3xl text-white" />
               </div>
-              <span className=" font-bold text-sm text-white">
+
+              <span className="font-bold text-sm text-white leading-6">
                 لورم ایپسوم متن ساختگی با
               </span>
-              <p className="text-[#E3E3E3]  font-normal text-xs">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنام
+
+              <p className="text-[#E3E3E3] text-xs leading-6">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه.
               </p>
-            </section>
+            </article>
           </CarouselItem>
         ))}
       </CarouselContent>
-
-      {/* <CarouselNext className="!left-4 !right-auto z-50 bg-white rotate-180 border border-black" />
-
-      <CarouselPrevious className="!right-4 !left-auto z-50 bg-white -rotate-180 border border-black" /> */}
     </Carousel>
   );
 }
