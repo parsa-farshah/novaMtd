@@ -29,7 +29,7 @@ const NeuroProducts = () => {
             </p>
 
             <Link href="./productDetailPage" className="block w-full">
-              <div className="w-full rounded-2xl bg-blue-600 px-4 py-3 text-center font-semibold text-white shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
+              <div className="w-full rounded-2xl bg-blue-600 border border-blue-500 border-t-white/30 px-4 py-3 text-center font-semibold text-white shadow-md transition-all duration-300 hover:bg-blue-700 hover:border-blue-400 hover:shadow-lg active:scale-[0.98]">
                 مشاهده محصول
               </div>
             </Link>

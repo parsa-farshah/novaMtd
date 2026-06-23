@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       <Top />
-      <div className="flex flex-col gap-24 md:gap-32">
+      <div className="flex flex-col gap-12 md:gap-32">
         <Header />
         <OurServices />
         <WhyChooseUs />

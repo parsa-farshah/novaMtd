@@ -97,7 +97,7 @@ export default function ProductDetailPage({
           خانه
         </Link>
         <ChevronLeftIcon className="h-4 w-4 rotate-180" />
-        <Link href="./neuro-bandages" className="hover:text-primary">
+        <Link href="/neuro-bandages" className="hover:text-primary">
           محصولات
         </Link>
         <ChevronLeftIcon className="h-4 w-4 rotate-180" />

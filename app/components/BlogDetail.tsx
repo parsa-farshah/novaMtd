@@ -23,6 +23,28 @@ const relatedPosts = [
 const BlogDetail = () => {
   return (
     <div className="min-h-screen bg-slate-50 mt-[83px] md:mt-[86px]" dir="rtl">
+      {/* Breadcrumb */}
+      <div className="w-full bg-slate-50">
+        <div className="container mx-auto px-4 md:px-6 pt-6">
+          <nav className="flex items-center gap-2 text-xs md:text-sm text-slate-400">
+            <Link
+              href="/"
+              className="hover:text-primary transition-colors flex items-center gap-1"
+            >
+              خانه
+            </Link>
+            <span className="text-slate-300">/</span>
+            <Link href="/blog" className="hover:text-primary transition-colors">
+              بلاگ
+            </Link>
+            <span className="text-slate-300">/</span>
+            <span className="text-slate-600 font-medium truncate max-w-[200px] md:max-w-none">
+              راهنمای جامع خرید تجهیزات مانیتورینگ
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Header */}
       <section className="relative bg-white border-b border-slate-200">
         <div className="container mx-auto px-4 md:px-6 py-10 md:py-14">

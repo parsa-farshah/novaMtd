@@ -76,7 +76,13 @@ function NavigationComponent() {
             </div>
 
             {/* mobile */}
-            <div className="flex md:hidden">
+            <div className="flex md:hidden items-center gap-2">
+              <Link
+                href="/contactUs"
+                className="px-6 py-3 rounded-xl border border-white/80 text-white text-[10px] font-bold whitespace-nowrap transition-all hover:bg-white hover:text-primary"
+              >
+                تماس
+              </Link>
               <MobileMenu currentPage="/" />
             </div>
 
