@@ -7,23 +7,29 @@ import { MobileMenu } from "./MobileMenu";
 function NavigationComponent() {
   const navItems = [
     { label: "خانه", href: "/" }, // فرض کنید صفحات شما این آدرس‌ها را دارند
-    { label: "لورم", href: "/page2" },
-    { label: "درباره ما", href: "/aboutUs" },
     { label: "ثبت نام", href: "/SignUp" },
+    { label: "تماس باما", href: "/contactUs" },
+    { label: "درباره ما", href: "/aboutUs" },
   ];
 
   return (
     <section className="w-full bg-primary md:bg-[#fff0] px-3 md:px-6 md:py-3">
       <div className="flex justify-between items-center 2xl:mx-auto 2xl:container">
         {/* logo */}
-        <figure className="py-3">
-          <Image
-            src="/images/logoMain2.png"
-            alt="logo"
-            width={60}
-            height={60}
-          />
-        </figure>
+        <div className="flex items-center gap-3">
+          <div className="rounded-2xl bg-primary p-2 shadow-sm ring-1 ring-slate-200">
+            <Image
+              src="/images/logo2.png"
+              alt="Logo"
+              width={52}
+              height={52}
+              className="object-contain"
+            />
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-slate-900">نوا</h3>
+          </div>
+        </div>
         {/* menu moblie */}
         <div className="flex md:hidden">
           <MobileMenu currentPage="/" />
