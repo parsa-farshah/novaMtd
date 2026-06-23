@@ -4,7 +4,7 @@ import ButtonMain from "./ButtonMain";
 
 const HeaderImage = () => {
   return (
-    <div className="relative w-full h-[360px] md:h-[420px] lg:h-[520px]">
+    <div className="relative w-full h-[360px] md:h-[420px] lg:h-[520px] mt-[83px]">
       <Image
         src="/images/header.png"
         alt=""
