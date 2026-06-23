@@ -3,51 +3,61 @@ import Image from "next/image";
 import { Bars3Icon } from "@heroicons/react/16/solid";
 import NavLinks from "./NavLinks";
 import { MobileMenu } from "./MobileMenu";
+import Link from "next/link"; // اضافه کردن Link برای مدیریت مسیرها
 
 function NavigationComponent() {
   const navItems = [
-    { label: "خانه", href: "/" }, // فرض کنید صفحات شما این آدرس‌ها را دارند
+    { label: "خانه", href: "/" },
     { label: "ثبت نام", href: "/SignUp" },
     { label: "تماس باما", href: "/contactUs" },
     { label: "درباره ما", href: "/aboutUs" },
-    { label: "وبلاگ", href: "/blog" }, // فرض کنید صفحات شما این آدرس‌ها را دارند
+    { label: "وبلاگ", href: "/blog" },
   ];
 
   return (
     <section className="w-full bg-primary md:bg-[#fff0] px-3 md:px-6 md:py-3">
       <div className="flex justify-between items-center 2xl:mx-auto 2xl:container">
         {/* logo */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 py-3">
           <div className="rounded-2xl bg-primary p-2 shadow-sm ring-1 ring-slate-200">
             <Image
               src="/images/logo2.png"
               alt="Logo"
-              width={52}
-              height={52}
+              width={35}
+              height={35}
               className="object-contain"
             />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-slate-900">نوا</h3>
+            <h3 className="text-lg font-bold text-white md:text-slate-900">
+              نوا
+            </h3>
           </div>
         </div>
-        {/* menu moblie */}
+
+        {/* menu mobile */}
         <div className="flex md:hidden">
           <MobileMenu currentPage="/" />
         </div>
+
         {/* navigation */}
-        <NavLinks
-          items={navItems}
-          activePage={"/"}
-          // استایل‌های پیش‌فرض کامپوننت NavLinks را اینجا بازنویسی می‌کنید
-          // اگر استایل‌های پیش‌فرض مناسب هستند، نیازی به اینها نیست
-          // className="hidden md:flex" // این کلاس را خود کامپوننت NavLinks دارد
-          activeClass="text-primary" // اگر بخواهید تغییر دهید
-          // inactiveClass="text-[#848484]"
-          // hoverClass="hover:text-primary hover:duration-500"
-        />
-        {/* button  */}
         <div className="hidden md:flex">
+          <NavLinks
+            items={navItems}
+            activePage={"/"}
+            activeClass="text-primary"
+          />
+        </div>
+
+        {/* buttons group */}
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            href="/contactUs"
+            className="px-5 py-2.5 rounded-2xl border-2 border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all duration-300"
+          >
+            مشاوره با کارشناس
+          </Link>
+
           <ButtonMain txt="دریافت کاتالوگ" />
         </div>
       </div>

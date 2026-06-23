@@ -1,523 +1,308 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion"; // برای افکت‌های انیمیشنی
-import { StarIcon } from "@heroicons/react/24/solid"; // آیکن ستاره برای امتیازدهی
+import {
+  HeartIcon,
+  ShoppingCartIcon,
+  StarIcon,
+  MinusIcon,
+  PlusIcon,
+  ChevronLeftIcon,
+  TruckIcon,
+  ShieldCheckIcon,
+  ArrowPathIcon,
+} from "@heroicons/react/24/outline";
 
-// فرض می‌کنیم این اطلاعات از API یا یک فایل JSON گرفته می‌شود
-const productData = {
-  id: "med-12345",
-  name: "مانیتور علائم حیاتی بیمار مدل ProCare 5000",
-  brand: "Meditech",
-  price: "85,000,000",
-  currency: "تومان",
-  discountPrice: "79,500,000",
-  discountPercentage: 6,
-  rating: 4.9,
-  totalReviews: 87,
-  images: [
-    "/images/medical-product-1.jpg",
-    "/images/medical-product-2.jpg",
-    "/images/medical-product-3.jpg",
-    "/images/medical-product-4.jpg",
-  ],
-  shortDescription:
-    "مانیتور علائم حیاتی ProCare 5000 برای پایش دقیق ضربان قلب، فشار خون، SpO2 و دمای بدن در مراکز درمانی و بخش‌های مراقبت ویژه طراحی شده است.",
-  longDescription:
-    "مانیتور علائم حیاتی بیمار ProCare 5000 یک دستگاه حرفه‌ای و قابل اعتماد برای استفاده در بیمارستان‌ها، کلینیک‌ها و بخش ICU است. این دستگاه با نمایشگر باکیفیت و دقت بالا، امکان پایش هم‌زمان پارامترهای حیاتی بیمار را فراهم می‌کند. طراحی ارگونومیک، کاربری ساده و آلارم‌های هوشمند از ویژگی‌های برجسته این محصول هستند.",
-  specifications: [
-    { label: "نوع دستگاه", value: "مانیتور علائم حیاتی" },
-    { label: "پارامترها", value: "ECG، SpO2، NIBP، Temperature" },
-    { label: "صفحه نمایش", value: "نمایشگر رنگی 12 اینچ" },
-    { label: "منبع تغذیه", value: "برق شهری و باتری داخلی" },
-    { label: "کاربرد", value: "بیمارستان، ICU، اورژانس" },
-    { label: "کشور سازنده", value: "چین / تحت لیسانس اروپا" },
-    { label: "وزن", value: "4.2 کیلوگرم" },
-    { label: "گارانتی", value: "12 ماه" },
-  ],
-  reviews: [
-    {
-      id: "rev-001",
-      userName: "دکتر احمدی",
-      rating: 5,
-      date: "1403/03/15",
-      title: "دقت بالا و کاربری آسان",
-      comment:
-        "در بخش ICU استفاده می‌کنیم و از دقت و کیفیت نمایش اطلاعات بسیار رضایت داریم.",
-    },
-    {
-      id: "rev-002",
-      userName: "پرستار رضایی",
-      rating: 4,
-      date: "1403/03/10",
-      title: "مناسب برای استفاده روزمره",
-      comment:
-        "کار با دستگاه ساده است و آلارم‌ها به‌موقع عمل می‌کنند. برای بخش درمانی گزینه خوبی است.",
-    },
-  ],
+type ProductImage = {
+  src: string;
+  alt?: string;
 };
 
-const relatedProducts = [
-  {
-    id: "med-67890",
-    name: "پالس اکسیمتر انگشتی دیجیتال",
-    price: "2,500,000",
-    currency: "تومان",
-    image: "/images/related-medical-1.jpg",
-  },
-  {
-    id: "med-11223",
-    name: "دستگاه فشارسنج دیجیتال بازویی",
-    price: "3,200,000",
-    currency: "تومان",
-    image: "/images/related-medical-2.jpg",
-  },
-  {
-    id: "med-33445",
-    name: "ترمومتر دیجیتال غیرتماسی",
-    price: "1,800,000",
-    currency: "تومان",
-    image: "/images/related-medical-3.jpg",
-  },
-];
+type Product = {
+  id: string;
+  title: string;
+  price: number;
+  oldPrice?: number;
+  description: string;
+  images: ProductImage[];
+  rating?: number;
+  reviewsCount?: number;
+  category?: string;
+  brand?: string;
+  inStock?: boolean;
+  features?: string[];
+};
 
-export default function ProductDetailPage() {
-  const [selectedImage, setSelectedImage] = useState(productData.images[0]);
+type ProductDetailPageProps = {
+  product?: Product;
+  currentPage?: string;
+};
+
+const mockProduct: Product = {
+  id: "mock-1",
+  title: "دستگاه فشار خون دیجیتال مدل تستی",
+  price: 1250000,
+  oldPrice: 1550000,
+  description:
+    "این یک محصول تستی است که فقط برای مشاهده طراحی صفحه جزئیات محصول استفاده می‌شود. می‌توانی بعداً آن را با داده واقعی API جایگزین کنی.",
+  images: [
+    { src: "/images/placeholder.png", alt: "محصول تستی" },
+    { src: "/images/placeholder.png", alt: "محصول تستی 2" },
+    { src: "/images/placeholder.png", alt: "محصول تستی 3" },
+    { src: "/images/placeholder.png", alt: "محصول تستی 4" },
+  ],
+  rating: 4.7,
+  reviewsCount: 38,
+  category: "تجهیزات پزشکی",
+  brand: "نوا",
+  inStock: true,
+  features: ["دارای گارانتی", "نمایشگر دیجیتال", "مصرف کم", "حمل آسان"],
+};
+
+export default function ProductDetailPage({
+  product,
+  currentPage,
+}: ProductDetailPageProps) {
+  const safeProduct = product ?? mockProduct;
+
+  const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [activeTab, setActiveTab] = useState("description"); // 'description', 'specs', 'reviews'
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
 
-  const handleImageSelect = (image: string) => {
-    setSelectedImage(image);
-  };
-
-  const increaseQuantity = () => {
-    setQuantity((prev) => prev + 1);
-  };
-
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
+  const discountPercent = useMemo(() => {
+    if (!safeProduct.oldPrice || safeProduct.oldPrice <= safeProduct.price) {
+      return 0;
     }
-  };
+    return Math.round(
+      ((safeProduct.oldPrice - safeProduct.price) / safeProduct.oldPrice) * 100,
+    );
+  }, [safeProduct.oldPrice, safeProduct.price]);
 
-  const addToCart = () => {
-    console.log("Added to cart:", { id: productData.id, quantity });
-    alert(`${productData.name} با تعداد ${quantity} به سبد خرید اضافه شد!`);
-  };
+  const handleIncrease = () => setQuantity((prev) => prev + 1);
+  const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
-  const renderStars = (rating: number) => {
-    const stars = [];
-    for (let i = 0; i < 5; i++) {
-      stars.push(
-        <StarIcon
-          key={i}
-          className={`w-4 h-4 ${i < rating ? "text-yellow-400" : "text-gray-300"}`}
-        />,
-      );
-    }
-    return stars;
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert(`${safeProduct.title} به سبد خرید اضافه شد`);
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#f8fafc] pb-10">
+    <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8" dir="rtl">
       {/* Breadcrumb */}
-      <div className="w-full px-4 md:px-6 pt-4">
-        <div className="flex items-center gap-2 text-sm md:text-base text-slate-500">
-          <Link href="/" className="hover:text-primary transition-colors">
-            خانه
-          </Link>
-          <span>/</span>
-          <span className="text-primary font-semibold">
-            {productData.name.substring(0, 30)}...
-          </span>
-        </div>
+      <div className="mb-6 flex items-center gap-2 text-sm text-slate-500">
+        <Link href="/" className="hover:text-primary">
+          خانه
+        </Link>
+        <ChevronLeftIcon className="h-4 w-4 rotate-180" />
+        <Link href="/products" className="hover:text-primary">
+          محصولات
+        </Link>
+        {safeProduct.category && (
+          <>
+            <ChevronLeftIcon className="h-4 w-4 rotate-180" />
+            <span>{safeProduct.category}</span>
+          </>
+        )}
+        <ChevronLeftIcon className="h-4 w-4 rotate-180" />
+        <span className="text-slate-900">{safeProduct.title}</span>
       </div>
 
-      <main className="w-full px-4 md:px-6 py-6 md:py-10">
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-          {/* Product Images Section */}
-          <div className="lg:col-span-1">
-            <div className="relative w-full aspect-square rounded-3xl overflow-hidden bg-slate-100 mb-4">
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* Gallery */}
+        <div className="space-y-4">
+          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div className="relative aspect-square w-full">
               <Image
-                src={selectedImage}
-                alt={productData.name}
-                layout="fill"
-                objectFit="cover"
-                className="transition-opacity duration-500"
+                src={
+                  // safeProduct.images?.[selectedImage]?.src ||
+                  "/images/product.png"
+                }
+                alt={
+                  safeProduct.images?.[selectedImage]?.alt || safeProduct.title
+                }
+                fill
+                className="object-contain"
+                priority
               />
             </div>
-            <div className="flex gap-3 overflow-x-auto pb-2">
-              {productData.images.map((img, index) => (
+          </div>
+
+          {safeProduct.images && safeProduct.images.length > 1 && (
+            <div className="grid grid-cols-4 gap-3">
+              {safeProduct.images.map((img, index) => (
                 <button
-                  key={index}
-                  onClick={() => handleImageSelect(img)}
-                  className={`relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 hover:border-primary transition ${
-                    selectedImage === img
-                      ? "border-primary"
-                      : "border-transparent"
+                  key={`${img.src}-${index}`}
+                  type="button"
+                  onClick={() => setSelectedImage(index)}
+                  className={`relative aspect-square overflow-hidden rounded-2xl border transition-all ${
+                    selectedImage === index
+                      ? "border-primary ring-2 ring-primary/30"
+                      : "border-slate-200 hover:border-slate-300"
                   }`}
                 >
                   <Image
-                    src={img}
-                    alt={`Thumbnail ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-xl"
+                    src="/images/product.png"
+                    alt={img.alt || safeProduct.title}
+                    fill
+                    className="object-contain"
                   />
                 </button>
               ))}
             </div>
+          )}
+        </div>
+
+        {/* Details */}
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mb-4 flex items-start justify-between gap-4">
+            <div>
+              {safeProduct.brand && (
+                <p className="mb-1 text-sm text-slate-500">
+                  {safeProduct.brand}
+                </p>
+              )}
+              <h1 className="text-2xl font-bold text-slate-900">
+                {safeProduct.title}
+              </h1>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsFavorite((prev) => !prev)}
+              className={`rounded-full border p-2 transition-colors ${
+                isFavorite
+                  ? "border-red-200 bg-red-50 text-red-500"
+                  : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
+              }`}
+            >
+              <HeartIcon className="h-5 w-5" />
+            </button>
           </div>
 
-          {/* Product Info Section */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 md:p-8 lg:p-10">
-              <div className="mb-5">
-                <h1 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2 leading-tight">
-                  {productData.name}
-                </h1>
-                <Link
-                  href="#"
-                  className="text-sm text-primary font-semibold hover:underline"
-                >
-                  {productData.brand}
-                </Link>
-              </div>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex items-center gap-1 text-amber-500">
+              <StarIcon className="h-5 w-5 fill-amber-500" />
+              <span className="text-sm font-semibold text-slate-700">
+                {safeProduct.rating ?? "بدون امتیاز"}
+              </span>
+            </div>
+            <span className="text-sm text-slate-400">
+              ({safeProduct.reviewsCount ?? 0} نظر)
+            </span>
+          </div>
 
-              <div className="flex items-center gap-3 mb-5">
-                <div className="flex items-center">
-                  {renderStars(productData.rating)}
-                </div>
-                <span className="text-sm text-slate-500">
-                  ({productData.totalReviews} نظر)
-                </span>
-              </div>
-
-              <div className="mb-6">
-                <div className="flex items-center gap-3">
-                  {productData.discountPrice ? (
-                    <>
-                      <span className="text-3xl font-bold text-primary">
-                        {productData.discountPrice.replace(
-                          /\B(?=(\d{3})+(?!\d))/g,
-                          ",",
-                        )}
-                        <span className="text-lg font-normal">
-                          {" "}
-                          {productData.currency}
-                        </span>
-                      </span>
-                      <span className="text-lg line-through text-slate-400">
-                        {productData.price.replace(
-                          /\B(?=(\d{3})+(?!\d))/g,
-                          ",",
-                        )}{" "}
-                        {productData.currency}
-                      </span>
-                      <span className="text-xs font-bold bg-red-500 text-white px-2 py-0.5 rounded-full">
-                        -{productData.discountPercentage}%
-                      </span>
-                    </>
-                  ) : (
-                    <span className="text-3xl font-bold text-slate-800">
-                      {productData.price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                      {productData.currency}
+          <div className="mb-6 rounded-2xl bg-slate-50 p-4">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl font-bold text-primary">
+                {safeProduct.price.toLocaleString()} تومان
+              </span>
+              {safeProduct.oldPrice &&
+                safeProduct.oldPrice > safeProduct.price && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-slate-400 line-through">
+                      {safeProduct.oldPrice.toLocaleString()} تومان
                     </span>
-                  )}
-                </div>
-              </div>
+                    <span className="rounded-full bg-red-100 px-2 py-1 text-xs font-bold text-red-600">
+                      {discountPercent}% تخفیف
+                    </span>
+                  </div>
+                )}
+            </div>
+          </div>
 
-              <p className="text-sm text-slate-600 leading-7 mb-6">
-                {productData.shortDescription}
-              </p>
+          <p className="mb-6 leading-8 text-slate-600 text-justify">
+            {safeProduct.description}
+          </p>
 
-              <div className="flex items-center gap-4 mb-6">
-                <div className="flex items-center border border-slate-200 rounded-xl overflow-hidden">
+          {safeProduct.features && safeProduct.features.length > 0 && (
+            <div className="mb-6">
+              <h2 className="mb-3 text-sm font-bold text-slate-900">
+                ویژگی‌های محصول
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {safeProduct.features.map((feature) => (
                   <button
-                    onClick={decreaseQuantity}
-                    className="px-4 py-2 text-lg text-slate-600 hover:bg-slate-100 transition"
+                    key={feature}
+                    type="button"
+                    onClick={() =>
+                      setSelectedFeature(
+                        feature === selectedFeature ? null : feature,
+                      )
+                    }
+                    className={`rounded-full border px-4 py-2 text-sm transition-all ${
+                      selectedFeature === feature
+                        ? "border-primary bg-primary text-white"
+                        : "border-slate-200 bg-white text-slate-700 hover:border-primary hover:text-primary"
+                    }`}
                   >
-                    -
+                    {feature}
                   </button>
-                  <span className="px-4 py-2 text-lg font-semibold text-slate-800">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={increaseQuantity}
-                    className="px-4 py-2 text-lg text-slate-600 hover:bg-slate-100 transition"
-                  >
-                    +
-                  </button>
-                </div>
-
-                <button
-                  onClick={addToCart}
-                  className="flex-grow rounded-xl bg-primary text-white font-bold py-3 px-6 hover:opacity-90 transition"
-                >
-                  افزودن به سبد خرید
-                </button>
+                ))}
               </div>
+            </div>
+          )}
 
-              <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                <div className="text-sm font-medium text-slate-700">
-                  اشتراک گذاری:
-                </div>
-                <div className="flex gap-3">
-                  <Link href="#" className="hover:text-primary transition">
-                    <Image
-                      src="/icons/social/instagram.svg"
-                      alt="Instagram"
-                      width={20}
-                      height={20}
-                    />
-                  </Link>
-                  <Link href="#" className="hover:text-primary transition">
-                    <Image
-                      src="/icons/social/twitter.svg"
-                      alt="Twitter"
-                      width={20}
-                      height={20}
-                    />
-                  </Link>
-                  <Link href="#" className="hover:text-primary transition">
-                    <Image
-                      src="/icons/social/linkedin.svg"
-                      alt="LinkedIn"
-                      width={20}
-                      height={20}
-                    />
-                  </Link>
-                </div>
-              </div>
+          <div className="mb-6">
+            <h2 className="mb-3 text-sm font-bold text-slate-900">
+              انتخاب تعداد
+            </h2>
+            <div className="inline-flex items-center rounded-2xl border border-slate-200 bg-white">
+              <button
+                type="button"
+                onClick={handleDecrease}
+                className="p-3 text-slate-600 hover:bg-slate-50"
+              >
+                <MinusIcon className="h-5 w-5" />
+              </button>
+              <span className="min-w-14 px-4 text-center text-sm font-bold text-slate-900">
+                {quantity}
+              </span>
+              <button
+                type="button"
+                onClick={handleIncrease}
+                className="p-3 text-slate-600 hover:bg-slate-50"
+              >
+                <PlusIcon className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <button
+              type="submit"
+              disabled={!safeProduct.inStock}
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-4 text-base font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:bg-slate-300"
+            >
+              <ShoppingCartIcon className="h-5 w-5" />
+              {safeProduct.inStock ? "افزودن به سبد خرید" : "ناموجود"}
+            </button>
+          </form>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="flex flex-col items-center gap-2 rounded-2xl border border-slate-100 bg-slate-50/50 p-3 text-center">
+              <TruckIcon className="h-6 w-6 text-primary" />
+              <span className="text-[10px] font-medium text-slate-600">
+                ارسال سریع
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-2 rounded-2xl border border-slate-100 bg-slate-50/50 p-3 text-center">
+              <ShieldCheckIcon className="h-6 w-6 text-primary" />
+              <span className="text-[10px] font-medium text-slate-600">
+                ضمانت اصالت
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-2 rounded-2xl border border-slate-100 bg-slate-50/50 p-3 text-center">
+              <ArrowPathIcon className="h-6 w-6 text-primary" />
+              <span className="text-[10px] font-medium text-slate-600">
+                ۷ روز بازگشت
+              </span>
             </div>
           </div>
         </div>
-
-        {/* Details, Specs, Reviews Section */}
-        <div className="mt-8 md:mt-12 w-full max-w-7xl mx-auto bg-white rounded-3xl shadow-sm border border-slate-100 p-6 md:p-8 lg:p-10">
-          {/* Tabs */}
-          <div className="flex gap-4 md:gap-6 border-b border-slate-200 mb-6 pb-3 overflow-x-auto">
-            <button
-              onClick={() => setActiveTab("description")}
-              className={`text-lg font-semibold transition ${
-                activeTab === "description"
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              توضیحات محصول
-            </button>
-            <button
-              onClick={() => setActiveTab("specs")}
-              className={`text-lg font-semibold transition ${
-                activeTab === "specs"
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              مشخصات فنی
-            </button>
-            <button
-              onClick={() => setActiveTab("reviews")}
-              className={`text-lg font-semibold transition ${
-                activeTab === "reviews"
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              نظرات کاربران ({productData.totalReviews})
-            </button>
-          </div>
-
-          {/* Content */}
-          <AnimatePresence mode="wait">
-            {activeTab === "description" && (
-              <motion.div
-                key="description"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="text-sm text-slate-600 leading-7"
-              >
-                {productData.longDescription}
-              </motion.div>
-            )}
-            {activeTab === "specs" && (
-              <motion.div
-                key="specs"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4"
-              >
-                {productData.specifications.map((spec, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between py-3 border-b border-slate-100"
-                  >
-                    <span className="text-slate-700 font-medium">
-                      {spec.label}
-                    </span>
-                    <span className="text-slate-500">{spec.value}</span>
-                  </div>
-                ))}
-              </motion.div>
-            )}
-            {activeTab === "reviews" && (
-              <motion.div
-                key="reviews"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Add Review Form */}
-                <div className="mb-8 p-6 border border-slate-200 rounded-xl bg-slate-50">
-                  <h3 className="text-xl font-bold text-slate-800 mb-4">
-                    دیدگاه خود را بنویسید
-                  </h3>
-                  <form
-                    onSubmit={handleSubmit}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-4"
-                  >
-                    <div className="md:col-span-2">
-                      <label className="block mb-2 text-sm font-medium text-slate-700">
-                        نام شما
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition"
-                        placeholder="نام و نام خانوادگی"
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block mb-2 text-sm font-medium text-slate-700">
-                        عنوان دیدگاه
-                      </label>
-                      <input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition"
-                        placeholder="مثال: بهترین لپ تاپ"
-                      />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block mb-2 text-sm font-medium text-slate-700">
-                        امتیاز شما
-                      </label>
-                      {/* Simple rating input - can be improved with custom component */}
-                      <div className="flex gap-1">{renderStars(4)}</div>{" "}
-                      {/* Placeholder for rating selection */}
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block mb-2 text-sm font-medium text-slate-700">
-                        دیدگاه شما
-                      </label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={5}
-                        className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition resize-none"
-                        placeholder="جزئیات تجربه خود را بنویسید..."
-                      />
-                    </div>
-                    <div className="md:col-span-2 flex justify-end">
-                      <button
-                        type="submit"
-                        className="rounded-xl bg-primary text-white font-bold py-3 px-6 hover:opacity-90 transition"
-                      >
-                        ثبت دیدگاه
-                      </button>
-                    </div>
-                  </form>
-                </div>
-
-                {/* Reviews List */}
-                <div className="space-y-6">
-                  {productData.reviews.map((review) => (
-                    <div
-                      key={review.id}
-                      className="p-6 border border-slate-200 rounded-xl"
-                    >
-                      <div className="flex justify-between items-center mb-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
-                            {review.userName.charAt(0)}
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-slate-800">
-                              {review.userName}
-                            </h4>
-                            <p className="text-sm text-slate-500">
-                              {review.date}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex items-center">
-                          {renderStars(review.rating)}
-                        </div>
-                      </div>
-                      <h5 className="font-semibold text-slate-800 mb-2">
-                        {review.title}
-                      </h5>
-                      <p className="text-sm text-slate-600 leading-7">
-                        {review.comment}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Related Products Section */}
-        <div className="mt-8 md:mt-12 w-full max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center md:text-right">
-            محصولات مرتبط
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {relatedProducts.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-3xl shadow-sm border border-slate-100 p-5 flex flex-col items-center hover:shadow-lg transition"
-              >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-slate-100">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-2 text-center">
-                  {product.name}
-                </h3>
-                <p className="text-lg font-bold text-primary mb-4">
-                  {product.price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                  {product.currency}
-                </p>
-                <Link
-                  href={`/products/${product.id}`}
-                  className="w-full text-center rounded-xl bg-primary text-white font-bold py-2 px-4 hover:opacity-90 transition"
-                >
-                  مشاهده محصول
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

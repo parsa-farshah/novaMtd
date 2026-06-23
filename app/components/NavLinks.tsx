@@ -25,7 +25,9 @@ const NavLinks: React.FC<NavLinksProps> = ({
   hoverClass = "hover:text-primary hover:duration-500", // پیش‌فرض: رنگ primary در هاور
 }) => {
   return (
-    <ul className={`*:px-4 items-center ${className} hidden md:flex`}>
+    <ul
+      className={`*:px-4 items-center ${className} hidden md:flex text-sm lg:text-lg`}
+    >
       {items.map((item) => (
         <li key={item.href}>
           <a
