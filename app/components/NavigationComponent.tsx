@@ -18,6 +18,7 @@ function NavigationComponent() {
     { label: "تماس باما", href: "/contactUs" },
     { label: "درباره ما", href: "/aboutUs" },
     { label: "وبلاگ", href: "/blog" },
+    { label: "پانسمان های تخصصی", href: "/neuro-bandages" },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,7 +42,7 @@ function NavigationComponent() {
         ${
           isScrolled
             ? "bg-primary shadow-lg py-2 top-0"
-            : `py-4 ${isHome ? "md:top-[46px] md:bg-transparent" : "top-0 "}`
+            : `py-4 bg-primary md:bg-transparent ${isHome ? "md:top-[46px] md:bg-transparent" : "top-0 "}`
         }`}
       >
         <div className="px-3 md:px-6">

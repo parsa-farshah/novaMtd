@@ -6,13 +6,6 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 
 function Page() {
-  const stats = [
-    { number: "+9", label: "میلیون کاربر" },
-    { number: "+4", label: "هزار تنوع محصولات" },
-    { number: "+1.5", label: "هزار فروشنده فعال" },
-    { number: "+30", label: "هزار سفارش انجام شده" },
-  ];
-
   // دیتای جدید برای ۴ باکس جدید
   const features = [
     {
@@ -48,7 +41,7 @@ function Page() {
     <div className="min-h-screen">
       <NavigationComponent />
       {/* header */}
-      <div className="px-3 md:px-6 py-6 md:w-[90%] md:mx-auto 2xl:container">
+      <div className="px-3 md:px-6 py-6 md:w-[90%] md:mx-auto 2xl:container mt-[83px] md:mt-[86px]">
         {/* Breadcrumb */}
         <div className="flex gap-3 items-center text-gray-500 text-sm">
           <Link href="./">خانه /</Link>
@@ -97,39 +90,25 @@ function Page() {
                 </div>
               </div>
 
-              {/* ۳. بخش آماری: طراحی مدرن و شناور با تم آبی */}
-              <div className="w-full mt-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
-                  {stats.map((stat, index) => (
-                    <div
-                      key={index}
-                      className="group relative flex flex-col items-center md:items-start justify-center p-6 
-                   bg-white rounded-3xl border border-gray-50
-                   shadow-[4px_5px_5px_rgb(0,0,0,0.04)] 
-                   hover:shadow-[0_20px_40px_rgba(9,98,234,0.1)] 
-                   hover:-translate-y-1 transition-all duration-500 ease-out "
-                    >
-                      {/* یک المان تزئینی کوچک در گوشه برای زیبایی بیشتر (اختیاری) */}
-                      <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* باکس شیک و تک‌عنصر */}
+              <div className="w-full p-6 bg-white rounded-3xl border border-gray-100 shadow-[0_10px_25px_rgba(0,0,0,0.04)] flex items-start gap-5 hover:shadow-[0_20px_40px_rgba(9,98,234,0.08)] transition-all duration-500">
+                {/* آیکون در سمت راست */}
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center shrink-0 border border-blue-200/50">
+                  {/* اینجا می‌توانید تصویر یا آیکون خود را قرار دهید */}
+                  <span className="text-3xl">🛡️</span>
+                </div>
 
-                      {/* عدد با فونت درشت و رنگ تم */}
-                      <div className="relative">
-                        <span className="text-2xl md:text-3xl font-extrabold bg-gradient-to-br from-[#0962ea] to-[#064fa3] bg-clip-text text-transparent">
-                          {stat.number}
-                        </span>
-                        {/* یک نقطه کوچک زیر عدد برای جذابیت بیشتر */}
-                        <div className="w-4 h-1 bg-[#0962ea]/20 rounded-full mt-1 group-hover:w-8 transition-all duration-500" />
-                      </div>
-
-                      {/* برچسب (Label) */}
-                      <span className="text-[12px] md:text-sm font-medium text-gray-500 mt-3 text-center md:text-right w-full">
-                        {stat.label}
-                      </span>
-
-                      {/* افکت درخشش ملایم در پس‌زمینه هنگام هاور */}
-                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#0962ea]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                  ))}
+                {/* محتوا در سمت چپ */}
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-lg font-bold text-slate-800">
+                    پانسمان تخصصی اعصاب NovaMtd
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed text-justify">
+                    این پانسمان‌ها با تکنولوژی نوین، محافظت دقیق از نواحی حساس
+                    عصبی را تضمین می‌کنند. طراحی شده برای تسریع روند بهبودی و
+                    کاهش دردهای ناشی از تروما، با حفظ استانداردهای پزشکی جهانی و
+                    راحتی حداکثری برای بیمار.
+                  </p>
                 </div>
               </div>
             </div>{" "}

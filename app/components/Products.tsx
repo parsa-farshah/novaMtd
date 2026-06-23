@@ -53,7 +53,7 @@ const Products = () => {
                 <div className="w-[209px] h-[200px] rounded-3xl bg-white">
                   <figure className="relative w-full h-full">
                     <Image
-                      src="/images/product.png"
+                      src="/images/product1.png"
                       alt="products"
                       fill
                       className="object-contain"
@@ -82,7 +82,7 @@ const Products = () => {
                 <div className="w-[209px] h-[200px] rounded-3xl bg-white">
                   <figure className="relative w-full h-full">
                     <Image
-                      src="/images/product.png"
+                      src="/images/product1.png"
                       alt="products"
                       fill
                       className="object-contain"
@@ -114,7 +114,7 @@ const Products = () => {
                 <div className="w-[209px] h-[200px] rounded-3xl bg-white">
                   <figure className="relative w-full h-full">
                     <Image
-                      src="/images/product.png"
+                      src="/images/product1.png"
                       alt="products"
                       fill
                       className="object-contain"
@@ -143,7 +143,7 @@ const Products = () => {
                 <div className="w-[209px] h-[200px] rounded-3xl bg-white">
                   <figure className="relative w-full h-full">
                     <Image
-                      src="/images/product.png"
+                      src="/images/product1.png"
                       alt="products"
                       fill
                       className="object-contain"

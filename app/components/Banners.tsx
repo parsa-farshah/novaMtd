@@ -14,7 +14,7 @@ const Banners = () => {
             <div className="shrink-0 w-[80px] h-[70px] sm:w-[120px] sm:h-[90px] md:w-[180px] md:h-[130px] lg:w-[280px] lg:h-[240px]">
               <figure className="relative w-full h-full">
                 <Image
-                  src="/images/product.png"
+                  src="/images/product1.png"
                   alt="product"
                   fill
                   className="object-contain"
@@ -49,7 +49,7 @@ const Banners = () => {
               <div className="shrink-0 w-[80px] h-[70px] md:w-[180px] md:h-[140px] lg:w-[120px] lg:h-[90px]">
                 <figure className="relative w-full h-full">
                   <Image
-                    src="/images/product.png"
+                    src="/images/product1.png"
                     alt="product"
                     fill
                     className="object-contain"
@@ -77,7 +77,7 @@ const Banners = () => {
               <div className="shrink-0 w-[80px] h-[70px] md:w-[180px] md:h-[140px] lg:w-[120px] lg:h-[90px]">
                 <figure className="relative w-full h-full">
                   <Image
-                    src="/images/product.png"
+                    src="/images/product1.png"
                     alt="product"
                     fill
                     className="object-contain"

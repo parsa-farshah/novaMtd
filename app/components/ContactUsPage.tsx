@@ -28,7 +28,7 @@ export default function ContactUsPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#F8FAFC]">
+    <div className="w-full min-h-screen bg-[#F8FAFC] mt-[83px] md:mt-[86px]">
       {/* Breadcrumb */}
       <div className="w-full px-4 md:px-6 pt-4">
         <div className="flex items-center gap-2 text-sm md:text-base text-slate-500">

@@ -22,7 +22,7 @@ const relatedPosts = [
 
 const BlogDetail = () => {
   return (
-    <div className="min-h-screen bg-slate-50" dir="rtl">
+    <div className="min-h-screen bg-slate-50 mt-[83px] md:mt-[86px]" dir="rtl">
       {/* Hero Header */}
       <section className="relative bg-white border-b border-slate-200">
         <div className="container mx-auto px-4 md:px-6 py-10 md:py-14">

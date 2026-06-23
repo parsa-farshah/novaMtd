@@ -48,7 +48,10 @@ const posts = [
 
 const Blog = () => {
   return (
-    <div className="min-h-screen bg-slate-50 pb-20" dir="rtl">
+    <div
+      className="min-h-screen bg-slate-50 pb-20 mt-[83px] md:mt-[86px]"
+      dir="rtl"
+    >
       {/* Hero Section: Featured Post */}
       <section className="relative w-full h-[500px] overflow-hidden">
         <Image
