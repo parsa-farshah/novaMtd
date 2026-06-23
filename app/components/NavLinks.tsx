@@ -26,7 +26,7 @@ const NavLinks: React.FC<NavLinksProps> = ({
 }) => {
   return (
     <ul
-      className={`*:px-4 items-center ${className} hidden md:flex text-sm lg:text-lg`}
+      className={`*:lg:px-4 *:px-2 items-center ${className} hidden md:flex text-[10px] lg:text-sm xl:text-lg`}
     >
       {items.map((item) => (
         <li key={item.href}>

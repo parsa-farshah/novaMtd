@@ -67,7 +67,7 @@ function NavigationComponent() {
               </div>
 
               <h3
-                className={`text-lg font-bold transition-all duration-300 ${
+                className={`text-xs lg:text-sm xl:text-lg font-bold transition-all duration-300 ${
                   isScrolled ? "text-white" : "text-white md:text-slate-900"
                 }`}
               >
@@ -80,13 +80,23 @@ function NavigationComponent() {
               <MobileMenu currentPage="/" />
             </div>
 
-            {/* nav */}
-            <div className="hidden md:flex">
+            {/* nav - تغییرات در اینجا برای کنترل فضا */}
+            <div className="hidden md:flex xl:gap-2">
               <NavLinks
                 items={navItems}
                 activePage="/"
-                activeClass={isScrolled ? "text-gray-300" : "text-primary"}
-                inactiveClass={isScrolled ? "text-white" : "text-[#848484]"}
+                className="!px-0 lg:px-2"
+                // استفاده از سایز فونت کوچکتر برای صفحات md و lg
+                activeClass={
+                  isScrolled
+                    ? "text-gray-300 text-[12px] lg:text-[14px]"
+                    : "text-primary text-[12px] lg:text-[14px]"
+                }
+                inactiveClass={
+                  isScrolled
+                    ? "text-white text-[12px] lg:text-[14px]"
+                    : "text-[#848484] text-[12px] lg:text-[14px]"
+                }
                 hoverClass={
                   isScrolled
                     ? "hover:text-white/80 duration-300"
@@ -95,23 +105,32 @@ function NavigationComponent() {
               />
             </div>
 
-            {/* buttons */}
-            <div className="hidden md:flex items-center gap-3">
+            {/* buttons - تغییر پدینگ و سایز فونت */}
+            <div className="hidden md:flex items-center gap-2 lg:gap-3">
               <Link
                 href="/contactUs"
-                className={`px-5 py-2.5 rounded-2xl border-2 font-bold text-sm transition-all duration-300
-                ${
-                  isScrolled
-                    ? "border-white text-white hover:bg-white hover:text-primary"
-                    : "border-primary text-primary hover:bg-primary hover:text-white"
-                }`}
+                // کاهش پدینگ و سایز فونت برای حالت md
+                className={`px-2 lg:px-4 py-2 rounded-2xl border-2 font-bold text-[10px] lg:text-[12px] whitespace-nowrap transition-all duration-300
+    ${
+      isScrolled
+        ? "border-white text-white hover:bg-white hover:text-primary"
+        : "border-primary text-primary hover:bg-primary hover:text-white"
+    }`}
               >
                 مشاوره با کارشناس
               </Link>
 
-              <div className={isScrolled ? "button-scrolled-variant" : ""}>
-                <ButtonMain txt="دریافت کاتالوگ" />
-              </div>
+              <Link
+                href="/catalog"
+                className={`inline-flex items-center justify-center px-3 lg:px-4 py-2 rounded-2xl border-2 font-bold text-[10px] lg:text-[12px] whitespace-nowrap transition-all duration-300
+  ${
+    isScrolled
+      ? "border-white text-white hover:bg-white hover:text-primary"
+      : "border-primary text-primary hover:bg-primary hover:text-white"
+  }`}
+              >
+                دریافت کاتالوگ
+              </Link>
             </div>
           </div>
         </div>
